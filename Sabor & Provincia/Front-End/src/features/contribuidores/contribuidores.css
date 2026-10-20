@@ -1,0 +1,209 @@
+.contribuidores-container {
+    background-color: var(--color-beige);
+    padding: 120px 5%;
+    position: relative;
+    overflow: hidden;
+    min-height: 900px;
+}
+
+.contribuidores-header {
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+    z-index: 10;
+}
+
+.contri-labels {
+    font-family: var(--font-labels);
+    font-size: 52px;
+    color: var(--color-background-dark-green);
+    margin-bottom: 40px;
+}
+
+.contri-title {
+    font-family: var(--font-titles);
+    font-size: 64px;
+    color: var(--color-background-dark-brown);
+    margin-bottom: 10px;
+}
+
+.contri-subtitle {
+    font-family: var(--font-p1);
+    font-size: 20px;
+    color: var(--color-background-dark-green);
+}
+
+.cards-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+.contri-card {
+    background-color: var(--color-white);
+    padding: 50px;
+    width: 450px;
+    box-shadow: 15px 15px 40px rgba(0,0,0,0.05);
+    position: relative;
+}
+
+.card-top-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+}
+
+.line-gold { background-color: var(--color-primary); box-shadow: 0 10px 10px var(--color-primary); }
+.line-green { background-color: var(--color-background-dark-green); box-shadow: 0 10px 10px var(--color-background-dark-green); }
+
+.card-title-elguche {
+    font-family: var(--font-titles);
+    font-size: 42px;
+    color: var(--color-background-ligth-green);
+    margin-bottom: 25px;
+}
+
+.card-label-elguche {
+    display: block;
+    font-family: var(--font-p2);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--color-primary);
+    margin-bottom: 30px;
+}
+
+.card-title-donpepe {
+    font-family: var(--font-titles);
+    font-size: 42px;
+    color: var(--color-primary);
+    margin-bottom: 25px;
+}
+
+.card-label-donpepe {
+    display: block;
+    font-family: var(--font-p2);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--color-background-ligth-green);
+    margin-bottom: 30px;
+}
+
+.card-desc {
+    font-family: var(--font-p1);
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--color-background-dark-brown);
+    margin-bottom: 40px;
+    text-align: justify;
+}
+
+.card-link {
+    font-family: var(--font-p1);
+    font-size: 18px;
+    color: var(--color-background-dark-brown);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.card-pepe { transition: all 0.3s ease; }
+.card-guche { transition: all 0.3s ease; margin-top: 40px; }
+
+.card-pepe:hover  { 
+    transform: rotate(-5deg); 
+}
+
+.card-guche:hover  { 
+    transform: rotate(5deg); 
+}
+
+.deco-container {
+    position: absolute;
+    z-index: 1;
+}
+
+.deco-contri {
+    width: 350px;
+    filter: sepia(0.2);
+    box-shadow: 15px 15px 30px rgba(0,0,0,0.1);
+    display: block;
+    opacity: 0.6;
+}
+
+.c1 { 
+    top: 150px; 
+    right: -50px; 
+}
+.c1 .deco-contri { 
+    transform: rotate(12deg); 
+}
+
+.c2 { 
+    bottom: 50px; 
+    left: -80px; 
+}
+.c2 .deco-contri { 
+    transform: rotate(-8deg); 
+}
+
+.c3 { 
+    bottom: -50px; 
+    right: 10%; 
+}
+.c3 .deco-contri { 
+    transform: rotate(-5deg); 
+    width: 450px; 
+}
+
+.hidden {
+    opacity: 0;
+}
+
+@media (max-width: 1024px) {
+    .cards-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    .contri-card {
+        width: 100%;
+        max-width: 450px;
+    }
+    .card-guche {
+        margin-top: 0;
+    }
+    .deco-contri {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .contribuidores-container {
+        padding: 80px 5%;
+    }
+    .contri-labels {
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+    .contri-title {
+        font-size: 42px;
+    }
+    .contri-subtitle {
+        font-size: 16px;
+    }
+    .contri-card {
+        padding: 30px;
+    }
+    .card-title-elguche, .card-title-donpepe {
+        font-size: 32px;
+    }
+    .card-desc {
+        font-size: 16px;
+    }
+}

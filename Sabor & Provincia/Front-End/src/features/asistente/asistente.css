@@ -1,0 +1,446 @@
+/* ═══════════════════════════════════════════════════
+   TOKENS DEL PROYECTO
+═══════════════════════════════════════════════════ */
+:root {
+  --tierra:       #1a1a14;
+  --tierra-med:   #2d2d20;
+  --verde-medio:  #2d4a28;
+  --verde-claro:  #4a7a44;
+  --verde-accent: #8aad85;
+  --dorado:       #e8c87a;
+  --dorado-osc:   #c8a855;
+  --crema:        #f7f4ee;
+  --crema-osc:    #ede8df;
+  --texto-muted:  #888880;
+}
+
+/* ═══════════════════════════════════════════════════
+   BOTÓN FLOTANTE DISPARADOR
+═══════════════════════════════════════════════════ */
+.asistente-trigger {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--verde-medio);
+  border: 1px solid rgba(232, 200, 122, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9998;
+  cursor: pointer;
+  color: var(--dorado);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.4),
+    0 0 0 0 rgba(232, 200, 122, 0.2);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: trigger-pulse 4s ease-in-out infinite;
+}
+
+.asistente-trigger:hover {
+  background: var(--tierra-med);
+  border-color: rgba(232, 200, 122, 0.6);
+  transform: scale(1.08);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    0 0 0 8px rgba(232, 200, 122, 0.08);
+}
+
+.asistente-trigger:focus-visible {
+  outline: 2px solid var(--dorado);
+  outline-offset: 4px;
+}
+
+@keyframes trigger-pulse {
+  0%, 100% { box-shadow: 0 4px 24px rgba(0,0,0,0.4), 0 0 0 0 rgba(232,200,122,0.2); }
+  50%       { box-shadow: 0 4px 24px rgba(0,0,0,0.4), 0 0 0 12px rgba(232,200,122,0); }
+}
+
+/* ═══════════════════════════════════════════════════
+   OVERLAY
+═══════════════════════════════════════════════════ */
+.asistente-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 8, 0.85);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.4s ease;
+}
+
+.asistente-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.asistente-overlay.hidden .asistente-modal {
+  transform: translateY(40px) scale(0.96);
+  opacity: 0;
+}
+
+.asistente-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ═══════════════════════════════════════════════════
+   MODAL
+═══════════════════════════════════════════════════ */
+.asistente-modal {
+  background: var(--tierra);
+  border: 1px solid rgba(232, 200, 122, 0.15);
+  border-radius: 16px;
+  width: 90%;
+  max-width: 420px;
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+/* Header del modal */
+.asistente-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 1px solid rgba(232, 200, 122, 0.1);
+  padding-bottom: 24px;
+}
+
+.asistente-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--dorado);
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.asistente-subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  color: var(--texto-muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════════════
+   INDICADOR DE ESTADO — WCAG 4.1.2
+═══════════════════════════════════════════════════ */
+.status-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 28px 20px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  min-height: 110px;
+  justify-content: center;
+  transition: border-color 0.4s ease, background 0.4s ease;
+}
+
+/* Ícono central animado según estado */
+.status-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  transition: all 0.4s ease;
+}
+
+/* Estado: inactivo */
+.status-indicator.inactivo {
+  border-color: rgba(255, 255, 255, 0.06);
+}
+.status-indicator.inactivo .status-icon {
+  background: rgba(138, 173, 133, 0.08);
+  border: 1px solid rgba(138, 173, 133, 0.2);
+  color: var(--verde-accent);
+}
+
+/* Estado: escuchando */
+.status-indicator.escuchando {
+  border-color: rgba(232, 200, 122, 0.25);
+  background: rgba(232, 200, 122, 0.04);
+}
+.status-indicator.escuchando .status-icon {
+  background: rgba(232, 200, 122, 0.1);
+  border: 1px solid rgba(232, 200, 122, 0.4);
+  color: var(--dorado);
+  animation: mic-pulse 1.4s ease-in-out infinite;
+}
+
+/* Estado: procesando */
+.status-indicator.procesando {
+  border-color: rgba(138, 173, 133, 0.2);
+  background: rgba(138, 173, 133, 0.04);
+}
+.status-indicator.procesando .status-icon {
+  background: rgba(45, 74, 40, 0.3);
+  border: 1px solid rgba(138, 173, 133, 0.3);
+  color: var(--verde-accent);
+}
+
+/* Estado: hablando */
+.status-indicator.hablando {
+  border-color: rgba(138, 173, 133, 0.3);
+  background: rgba(45, 74, 40, 0.08);
+}
+.status-indicator.hablando .status-icon {
+  background: rgba(45, 74, 40, 0.3);
+  border: 1px solid rgba(138, 173, 133, 0.5);
+  color: var(--verde-accent);
+  animation: speaker-wave 1s ease-in-out infinite alternate;
+}
+
+@keyframes mic-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(232, 200, 122, 0.3); }
+  50%       { box-shadow: 0 0 0 12px rgba(232, 200, 122, 0); }
+}
+
+@keyframes speaker-wave {
+  from { transform: scale(1.0); }
+  to   { transform: scale(1.08); }
+}
+
+.status-text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--texto-muted);
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.status-indicator.escuchando .status-text { color: var(--dorado); }
+.status-indicator.procesando .status-text { color: var(--verde-accent); }
+.status-indicator.hablando   .status-text { color: var(--verde-accent); }
+
+/* Spinner — estado procesando */
+.spinner {
+  width: 22px;
+  height: 22px;
+  border: 2px solid rgba(138, 173, 133, 0.15);
+  border-left-color: var(--verde-accent);
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ═══════════════════════════════════════════════════
+   TRANSCRIPCIÓN — WCAG 1.2.1
+═══════════════════════════════════════════════════ */
+.transcripcion {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.transcripcion-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--texto-muted);
+}
+
+.transcripcion p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: rgba(240, 234, 216, 0.55);
+  font-style: italic;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════════════════
+   RESPUESTA DEL CHEF
+═══════════════════════════════════════════════════ */
+.respuesta-chef {
+  background: rgba(45, 74, 40, 0.18);
+  border: 1px solid rgba(138, 173, 133, 0.25);
+  border-radius: 8px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  animation: fade-up 0.4s ease both;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.respuesta-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--verde-accent);
+}
+
+.respuesta-chef p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: #d4eacd;
+  line-height: 1.75;
+  font-weight: 300;
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════════════
+   ERROR — Capítulo 5.2
+═══════════════════════════════════════════════════ */
+.error-msg {
+  background: rgba(232, 200, 122, 0.07);
+  border: 1px solid rgba(232, 200, 122, 0.2);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: var(--dorado);
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════════════════
+   BOTONES — WCAG 2.1.1 Teclado
+═══════════════════════════════════════════════════ */
+.asistente-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-main {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+/* Inactivo → acción primaria dorada */
+.btn-main.inactivo {
+  background: var(--dorado);
+  color: var(--tierra);
+}
+.btn-main.inactivo:hover {
+  background: var(--dorado-osc);
+  transform: translateY(-1px);
+}
+
+/* Escuchando → detener en rojo suave */
+.btn-main.escuchando {
+  background: rgba(180, 60, 60, 0.15);
+  color: #e8a0a0;
+  border: 1px solid rgba(180, 60, 60, 0.3);
+}
+.btn-main.escuchando:hover {
+  background: rgba(180, 60, 60, 0.25);
+}
+
+/* Procesando → deshabilitado */
+.btn-main.procesando {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--texto-muted);
+  cursor: not-allowed;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Hablando → interrumpir en verde */
+.btn-main.hablando {
+  background: rgba(45, 74, 40, 0.3);
+  color: var(--verde-accent);
+  border: 1px solid rgba(138, 173, 133, 0.3);
+}
+.btn-main.hablando:hover {
+  background: rgba(45, 74, 40, 0.45);
+}
+
+.btn-main:focus-visible {
+  outline: 2px solid var(--dorado);
+  outline-offset: 2px;
+}
+
+.btn-close {
+  width: 100%;
+  padding: 11px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--texto-muted);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-close:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--crema);
+}
+
+.btn-close:focus-visible {
+  outline: 2px solid var(--dorado);
+  outline-offset: 2px;
+}
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════ */
+@media (max-width: 480px) {
+  .asistente-trigger { bottom: 24px; right: 24px; width: 56px; height: 56px; }
+  .asistente-modal   { padding: 28px 20px; }
+  .asistente-title   { font-size: 22px; }
+}
+
+/* ═══════════════════════════════════════════════════
+   REDUCED MOTION — WCAG 2.3.3
+═══════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .asistente-trigger,
+  .status-icon,
+  .spinner,
+  .respuesta-chef,
+  .btn-main { animation: none !important; transition: none !important; }
+}

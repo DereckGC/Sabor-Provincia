@@ -1,0 +1,221 @@
+.navbar-container{
+    background-color: rgba(42, 31, 15, 0.888);
+    padding: 30px 40px;
+    width: 100%;
+    border-radius: 0 0 30px 30px;
+}
+
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+}
+
+.navbar-logo{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.navbar-logo-icon{
+    font-family: var(--font-logo-icon);
+    font-size: 32px;
+    color: var(--color-primary);
+    font-weight: bold;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.navbar-logo-icon:hover{
+    transform: translateY(-5px);
+}
+
+.nav-menu-container {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-width: 0;
+}
+
+.labels-navigation{
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--color-white);
+    font-size: var(--font-size-p1);
+    font-family: var(--font-p1);
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+    padding-bottom: 4px;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-primary);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.navbar-social-media-buttons{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn-nav-don-pepe{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: var(--font-size-p2);
+    font-family: var(--font-p2);
+    color: var(--color-white);
+    background-color: var(--color-background-ligth-green);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn-nav-don-pepe:hover{
+    transform: translateY(-5px);
+}
+
+.btn-nav-elguche{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: var(--font-size-p2);
+    font-family: var(--font-p2);
+    color: var(--color-primary);
+    background-color: var(--color-background-ligth-brown);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn-nav-elguche:hover{
+    transform: translateY(-5px);
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 1001;
+    padding: 0;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-primary);
+    transition: all 0.3s ease;
+}
+
+.close-menu {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: var(--color-primary);
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .navbar-container {
+        padding: 15px 20px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hamburger.active {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .nav-menu-container {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        max-width: 320px;
+        height: 100vh;
+        background-color: rgba(42, 31, 15, 0.95);
+        backdrop-filter: blur(10px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+        transition: right 0.4s cubic-bezier(0.77,0.2,0.05,1.0);
+        z-index: 1000;
+        gap: 50px;
+        box-sizing: border-box;
+    }
+
+    .nav-menu-container.open {
+        right: 0;
+    }
+
+    .close-menu {
+        display: block;
+    }
+
+    .labels-navigation {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        margin: 0;
+    }
+
+    .nav-link {
+        font-size: 24px;
+    }
+
+    .navbar-social-media-buttons {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 20px;
+    }
+
+    .btn-nav-don-pepe,
+    .btn-nav-elguche {
+        width: fit-content;
+    }
+}

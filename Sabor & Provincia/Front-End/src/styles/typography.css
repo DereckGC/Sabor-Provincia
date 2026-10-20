@@ -1,0 +1,8 @@
+
+
+.titles{font-family: var(--font-titles); font-size: var(--font-size-titles);}
+.subtitles{font-family: var(--font-subtitles); font-size: var(--font-size-subtitles);}
+.labels{font-family: var(--font-labels); font-size: var(--font-size-labels);}
+.p1{font-family: var(--font-p1); font-size: var(--font-size-p1);}
+.p2{font-family: var(--font-p2); font-size: var(--font-size-p2);}
+

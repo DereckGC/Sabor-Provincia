@@ -1,0 +1,27 @@
+:root{
+    
+    --font-titles : "DM Serif Display", serif;
+    --font-size-titles : 64px;
+    --font-subtitles : "DM Serif Display", serif;
+    --font-size-subtitles : 48px;
+    --font-labels : "DM Serif Display", serif;
+    --font-size-labels : 32px;
+    --font-p1 : "DM Sans";
+    --font-size-p1 : 18px;
+    --font-p2 : "DM Sans";
+    --font-size-p2 : 15px;
+    --font-logo-icon : "Elsie", serif;
+    --font-size-logo-icon : 18px;
+
+    --color-primary: #d4a547;
+    --color-black: #2A1F0F;
+    --color-white: #F9F6F0;
+    --color-divider: #5A6E4A;
+    --color-background-dark-brown: #3D2D18;
+    --color-background-ligth-brown: #5D3E1A;
+    --color-background-dark-green: #4A5C3A;
+    --color-background-ligth-green: #697356;
+    --color-beige: #E8DCC8;
+
+    --image-hero-background: url('/images/hero-image.png');
+}

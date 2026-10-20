@@ -1,0 +1,159 @@
+.suscripcion-container {
+    background-color: var(--color-background-dark-green);
+    padding: 100px 5%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    height: 1000px;
+}
+
+.suscripcion-label {
+    font-family: var(--font-p2);
+    color: var(--color-primary);
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    margin-top: 70px;
+}
+
+.suscripcion-titulo {
+    font-family: var(--font-titles);
+    font-size: 56px;
+    color: var(--color-white);
+    margin-bottom: 50px;
+}
+
+.suscripcion-form {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-group {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.subs-input {
+    flex: 1;
+    background: none;
+    border: 1px solid rgba(249, 246, 240, 0.5);
+    padding: 15px 20px;
+    font-family: var(--font-p1);
+    color: var(--color-white);
+    font-size: 18px;
+}
+
+.subs-input::placeholder {
+    color: rgba(249, 246, 240, 0.6);
+}
+
+.subs-button {
+    width: 100%;
+    background-color: var(--color-primary);
+    border: none;
+    padding: 18px;
+    font-family: var(--font-p2);
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease, background-color 0.3s ease;
+}
+
+.subs-button:hover {
+    background-color: #c5963a;
+    transform: translateY(-3px);
+    border-radius: 100px;
+}
+
+.subs-disclaimer {
+    font-family: var(--font-p1);
+    font-size: 14px;
+    color: rgba(249, 246, 240, 0.5);
+    margin-top: 25px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Círculos decorativos inferiores */
+.subs-decorations {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 25px;
+    margin-top: 80px;
+    height: 80px;
+}
+
+.dot {
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    opacity: 0.6;
+}
+
+.d1 { width: 40px; height: 40px; margin-bottom: 20px; }
+.d2 { width: 30px; height: 30px; margin-bottom: 50px; }
+.d3 { width: 22px; height: 22px; margin-bottom: 35px; }
+.d4 { width: 15px; height: 15px; margin-bottom: 20px; }
+.d5 { width: 25px; height: 25px; margin-bottom: 5px; }
+.d6 { width: 32px; height: 32px; margin-bottom: 30px; }
+.d7 { width: 38px; height: 38px; margin-bottom: 55px; }
+
+.subs-footer-text {
+    margin-top: 60px;
+    font-family: var(--font-p1);
+    font-size: 20px;
+    color: var(--color-white);
+    letter-spacing: 1px;
+}
+
+.hidden-before-animate {
+    opacity: 0;
+}
+
+/* Status Messages */
+.status-message {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-family: var(--font-p1);
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.status-message.success {
+    background-color: rgba(76, 175, 80, 0.1);
+    border: 1px solid #4CAF50;
+    color: #4CAF50;
+}
+
+.status-message.error {
+    background-color: rgba(244, 67, 54, 0.1);
+    border: 1px solid #F44336;
+    color: #F44336;
+}
+
+@media (max-width: 768px) {
+    .suscripcion-container {
+        padding: 60px 5%;
+        height: auto;
+    }
+    .form-group {
+        flex-direction: column;
+    }
+    .suscripcion-titulo {
+        font-size: 36px;
+    }
+    .subs-decorations {
+        gap: 15px;
+    }
+    .d1, .d2, .d3, .d4, .d5, .d6, .d7 {
+        width: 15px;
+        height: 15px;
+        margin-bottom: 10px;
+    }
+    .subs-footer-text {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,204 @@
+.hero-container {
+    width: 100%;
+    min-height: 150vh;
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(rgba(42, 31, 15, 0.4), rgba(42, 31, 15, 0.4)), var(--image-hero-background);
+    background-size: cover;
+    background-position: center 30%;
+    background-repeat: no-repeat;
+    background-color: var(--color-black);
+}
+
+.hero-main-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4%;
+    max-width: 1600px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.hero-text-side {
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 0;
+}
+
+.hero-title {
+    font-family: var(--font-titles);
+    font-size: var(--font-size-titles);
+    color: var(--color-white);
+    line-height: 1.1;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.hero-subtitle {
+    font-family: var(--font-subtitles);
+    font-size: var(--font-size-subtitles);
+    color: var(--color-primary);
+    display: block;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-black);
+    padding: 14px 35px;
+    border: none;
+    font-family: var(--font-p2);
+    font-size: var(--font-size-p2);
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-white);
+    padding: 14px 35px;
+    border: 2px solid var(--color-primary);
+    font-family: var(--font-p2);
+    font-size: var(--font-size-p2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+a {
+    text-decoration: none;
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+    transform: translateY(-7px);
+}
+
+.hero-image-side {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hero-circular-frame {
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 8px solid rgba(249, 246, 240, 0.1);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.hero-circular-frame:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 30px 60px var(--color-primary);
+}
+ 
+.hero-circular-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 100%;
+}
+
+.hero-stats-bar {
+    background-color: var(--color-background-ligth-green);
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 8%;
+    width: 100%;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-number {
+    font-family: var(--font-labels);
+    font-size: 47px;
+    color: var(--color-primary);
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-family: var(--font-titles);
+    font-size: 28px;
+    color: var(--color-white);
+    letter-spacing: 1px;
+}
+
+@media (max-width: 992px) {
+    .hero-main-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 80px 20px;
+    }
+
+    .hero-text-side {
+        align-items: center;
+    }
+
+    .hero-title {
+        text-align: center;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+        margin-bottom: 40px;
+    }
+
+    .hero-image-side {
+        justify-content: center;
+    }
+
+    .hero-circular-frame {
+        width: 300px;
+        height: 300px;
+    }
+
+    .hero-stats-bar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 45px;
+    }
+    .hero-subtitle {
+        font-size: 20px;
+    }
+    .hero-circular-frame {
+        width: 250px;
+        height: 250px;
+    }
+    .hero-stats-bar {
+        grid-template-columns: 1fr;
+        padding: 30px 5%;
+    }
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+        align-items: stretch;
+    }
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+}

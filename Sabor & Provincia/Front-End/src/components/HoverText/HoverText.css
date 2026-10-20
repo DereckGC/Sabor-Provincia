@@ -1,0 +1,24 @@
+.hover-text {
+    flex-wrap: wrap;
+    row-gap: 0.2em;
+}
+
+.hover-word {
+    display: inline-flex;
+    margin-right: 0.35em;
+}
+
+.hover-word:last-child {
+    margin-right: 0;
+}
+
+.hover-letter {
+    display: inline-block;
+    transition: transform 0.25s ease, color 0.25s ease;
+    transform-origin: center bottom;
+}
+
+.hover-letter:hover {
+    transform: translateY(-6px) scale(1.08) rotate(-2deg);
+    color: var(--hover-color, var(--color-primary));
+}

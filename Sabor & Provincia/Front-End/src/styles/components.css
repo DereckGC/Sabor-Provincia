@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+}
+
+footer {
+    width: 100%;
+    bottom: 0;
+}
+
+.hidden-before-animate {
+    visibility: hidden;
+    opacity: 0;
+}
